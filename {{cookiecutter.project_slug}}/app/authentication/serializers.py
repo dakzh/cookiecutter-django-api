@@ -11,7 +11,6 @@ class RegistrationSerializer(serializers.Serializer):
     name = serializers.CharField(required=True)
     email = serializers.EmailField(required=True)
     password = serializers.CharField(required=True)
-    type = serializers.ChoiceField(choices=[User.CLIENT, User.REALTOR])
 
     def validate(self, attrs):
         email = attrs.get('email')

@@ -1,7 +1,7 @@
 # General
 IPYTHONDIR=/app/.ipython
 DJANGO_DEBUG=True
-DJANGO_SECRET_KEY=7wkjRcVwebwZudY6o6CCqqXVG5SZofAGMZDI0ZchmsQhjSwbzVBQNlHW9b5lPjJI
+DJANGO_SECRET_KEY=!!!SET DJANGO_SECRET_KEY!!!
 
 # Redis
 REDIS_URL=redis://redis:6379/0
@@ -10,6 +10,6 @@ REDIS_URL=redis://redis:6379/0
 # ------------------------------------------------------------------------------
 POSTGRES_HOST=postgres
 POSTGRES_PORT=5432
-POSTGRES_DB=app
-POSTGRES_USER=app_user
-POSTGRES_PASSWORD=app_password
+POSTGRES_DB={{ cookiecutter.project_slug }}
+POSTGRES_USER=!!!SET POSTGRES_USER!!!
+POSTGRES_PASSWORD=!!!SET POSTGRES_PASSWORD!!!
