@@ -1,0 +1,15 @@
+# General
+IPYTHONDIR=/app/.ipython
+DJANGO_DEBUG=True
+DJANGO_SECRET_KEY=7wkjRcVwebwZudY6o6CCqqXVG5SZofAGMZDI0ZchmsQhjSwbzVBQNlHW9b5lPjJI
+
+# Redis
+REDIS_URL=redis://redis:6379/0
+
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=app
+POSTGRES_USER=app_user
+POSTGRES_PASSWORD=app_password

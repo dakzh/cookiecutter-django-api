@@ -1,0 +1,50 @@
+version: '3'
+
+volumes:
+  production_postgres_data: {}
+  production_postgres_data_backups: {}
+  media: {}
+  static: {}
+
+services:
+  django: &django
+    build:
+      context: .
+      dockerfile: ./compose/production/django/Dockerfile
+    image: app_production_django
+    depends_on:
+      - postgres
+    volumes:
+      - media:/media
+      - static:/static
+    env_file:
+      - .envs/.production
+    command: /start
+    ports:
+      - "5000:5000"
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    image: app_production_postgres
+    volumes:
+      - media:/media
+      - static:/static
+      - production_postgres_data:/var/lib/postgresql/data
+      - production_postgres_data_backups:/backups
+    env_file:
+      - .envs/.production
+
+  nginx:
+    image: nginx:1.17
+    container_name: ngx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./compose/production/nginx:/etc/nginx/conf.d
+      - media:/media
+      - static:/static
+    depends_on:
+      - django

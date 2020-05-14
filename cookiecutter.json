@@ -1,0 +1,8 @@
+{
+  "author_name": "Darkhan Akzholov",
+  "email": "dakzholov@gmail.com",
+  "github_username": "dakzh",
+  "project_name": "Django Boilerplate",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "version": "0.1.0"
+}
