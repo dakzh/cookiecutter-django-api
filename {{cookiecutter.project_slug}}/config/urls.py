@@ -7,14 +7,12 @@ from rest_framework import permissions
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="Booking Service API",
+      title="{{cookiecutter.project_name}}",
       default_version='v1',
       description="",
-      terms_of_service="https://dakzh.com/",
-      contact=openapi.Contact(email="dakzholov@gmail.com"),
+      contact=openapi.Contact(email="{{cookiecutter.email}}"),
       license=openapi.License(name="PRIVATE"),
    ),
-   url="https://api.dakzh.com",
    public=True,
    permission_classes=(permissions.AllowAny,),
 )

@@ -4,7 +4,6 @@ from rest_framework.response import Response
 
 from app.authentication.mixins import \
     JSONWebTokenAuthenticationMixin
-from app.users.filters import UserFilter
 from app.users.serializers import UserViewSerializer, UserEditSerializer
 
 from django.contrib.auth import get_user_model
@@ -17,7 +16,6 @@ User = get_user_model()
 
 
 class UserViewSet(JSONWebTokenAuthenticationMixin, ModelViewSet):
-    filterset_class = UserFilter
     queryset = User.objects.all()
     search_fields = ['email', 'name']
 

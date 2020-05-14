@@ -14,13 +14,12 @@ User = get_user_model()
 def create_user_and_token(*,
                           name: str,
                           email: str,
-                          password: str,
-                          type: int) -> (User, str):
+                          password: str) -> (User, str):
     user = User.objects.create(email=email,
                                name=name,
-                               password=password)
+                               password=password,
+                               is_active=True)
     user.is_active = True
-    user.type = type
     user.save()
 
     payload = jwt_payload_handler(user)
@@ -33,14 +32,11 @@ def update_user(*,
                 user: User,
                 name: str = None,
                 password: str = None,
-                type: int = None,
                 email: str = None) -> User:
     if email:
         user.email = email
     if name:
         user.name = name
-    if type:
-        user.type = type
     if password:
         user.set_password(password)
         user.secret_key = uuid.uuid4()

@@ -11,7 +11,6 @@ class UserViewSerializer(serializers.ModelSerializer):
         fields = ['id',
                   'name',
                   'email',
-                  'type',
                   'created_at',
                   'updated_at']
 
@@ -24,5 +23,4 @@ class UserEditSerializer(serializers.ModelSerializer):
         model = User
         fields = ['email',
                   'name',
-                  'password',
-                  'type']
+                  'password']
